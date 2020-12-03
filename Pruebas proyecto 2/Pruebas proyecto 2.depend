@@ -1,0 +1,51 @@
+# depslib dependency file v1.0
+1606961225 source:e:\universidad\semestre 2\proyectos ed, ed y eddy\pruebas proyecto 2\main.cpp
+	<iostream>
+	"include/Trie.h"
+
+1606964977 e:\universidad\semestre 2\proyectos ed, ed y eddy\pruebas proyecto 2\include\trie.h
+	"TrieNode.h"
+	"DLinkedList.h"
+	"arraylist.h"
+	<string>
+	<stdexcept>
+	<iostream>
+
+1606960254 e:\universidad\semestre 2\proyectos ed, ed y eddy\pruebas proyecto 2\include\trienode.h
+	"HashTable.h"
+
+1605823207 e:\universidad\semestre 2\proyectos ed, ed y eddy\pruebas proyecto 2\include\hashtable.h
+	"Dictionary.h"
+	"KVPair.h"
+	"LinkedList.h"
+	<string>
+	<stdlib.h>
+	<stdio.h>
+	<math.h>
+
+1603315812 e:\universidad\semestre 2\proyectos ed, ed y eddy\pruebas proyecto 2\include\dictionary.h
+	"List.h"
+
+1602109142 e:\universidad\semestre 2\proyectos ed, ed y eddy\pruebas proyecto 2\include\list.h
+
+1603319021 e:\universidad\semestre 2\proyectos ed, ed y eddy\pruebas proyecto 2\include\kvpair.h
+
+1605823257 e:\universidad\semestre 2\proyectos ed, ed y eddy\pruebas proyecto 2\include\linkedlist.h
+	"Node.h"
+	<stdexcept>
+	<iostream>
+
+1585247577 e:\universidad\semestre 2\proyectos ed, ed y eddy\pruebas proyecto 2\include\node.h
+	<cstdlib>
+
+1602107096 e:\universidad\semestre 2\proyectos ed, ed y eddy\pruebas proyecto 2\include\dlinkedlist.h
+	"list.h"
+	"DNode.h"
+	<stdexcept>
+
+1606348459 e:\universidad\semestre 2\proyectos ed, ed y eddy\pruebas proyecto 2\include\dnode.h
+
+1601952210 e:\universidad\semestre 2\proyectos ed, ed y eddy\pruebas proyecto 2\include\arraylist.h
+	"list.h"
+	<stdexcept>
+
