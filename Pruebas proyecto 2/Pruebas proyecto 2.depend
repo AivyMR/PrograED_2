@@ -1,18 +1,19 @@
 # depslib dependency file v1.0
-1606961225 source:e:\universidad\semestre 2\proyectos ed, ed y eddy\pruebas proyecto 2\main.cpp
+1607324153 source:e:\universidad\semestre 2\proyectos ed, ed y eddy\pruebas proyecto 2\main.cpp
 	<iostream>
+	<string>
+	<dirent.h>
 	"include/Trie.h"
 
-1606964977 e:\universidad\semestre 2\proyectos ed, ed y eddy\pruebas proyecto 2\include\trie.h
+1607306124 e:\universidad\semestre 2\proyectos ed, ed y eddy\pruebas proyecto 2\include\trie.h
 	"TrieNode.h"
-	"DLinkedList.h"
 	"arraylist.h"
 	<string>
 	<stdexcept>
 	<iostream>
 
-1606960254 e:\universidad\semestre 2\proyectos ed, ed y eddy\pruebas proyecto 2\include\trienode.h
-	"HashTable.h"
+1607305994 e:\universidad\semestre 2\proyectos ed, ed y eddy\pruebas proyecto 2\include\trienode.h
+	"AVLTreeDictionary.h"
 
 1605823207 e:\universidad\semestre 2\proyectos ed, ed y eddy\pruebas proyecto 2\include\hashtable.h
 	"Dictionary.h"
@@ -47,5 +48,18 @@
 
 1601952210 e:\universidad\semestre 2\proyectos ed, ed y eddy\pruebas proyecto 2\include\arraylist.h
 	"list.h"
+	<stdexcept>
+
+1607306058 e:\universidad\semestre 2\proyectos ed, ed y eddy\pruebas proyecto 2\include\avltreedictionary.h
+	<iostream>
+	"AVLTree.h"
+	"Dictionary.h"
+	"KVPair.h"
+
+1605907698 e:\universidad\semestre 2\proyectos ed, ed y eddy\pruebas proyecto 2\include\bstnode.h
+
+1606945977 e:\universidad\semestre 2\proyectos ed, ed y eddy\pruebas proyecto 2\include\avltree.h
+	"BSTNode.h"
+	"DLinkedList.h"
 	<stdexcept>
 

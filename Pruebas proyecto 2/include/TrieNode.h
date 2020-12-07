@@ -1,13 +1,13 @@
 #ifndef TRIENODE_H
 #define TRIENODE_H
 
-#include "HashTable.h"
+#include "AVLTreeDictionary.h"
 
 class TrieNode {
 private:
     bool isFinal;
     int prefixCount;
-    HashTable<char, TrieNode*> children;
+    AVLTreeDictionary<char, TrieNode*> children;
 
 public:
     TrieNode() : children() {

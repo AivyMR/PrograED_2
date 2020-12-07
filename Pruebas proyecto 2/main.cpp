@@ -1,40 +1,59 @@
 #include <iostream>
+#include <string>
+#include <dirent.h>
 #include "include/Trie.h"
 
 using namespace std;
 
+char * foundFile(char raiz[], DIR * directorio, struct dirent * localizador, const char * palabra){
+    char backup[500];
+    strcpy(backup, raiz);
+    directorio = opendir(raiz);
+    if(directorio){
+        while ((localizador = readdir(directorio)) != NULL){
+            const char * childe = localizador->d_name;
+            strcat(raiz, "/");
+            strcat(raiz, childe);
+            if (strcmp(childe, palabra) == 0){
+                closedir(directorio);
+                return raiz;
+            }
+            if (strcmp(childe, ".") != 0 && strcmp(childe, "..") != 0){
+                char * path = foundFile(raiz, directorio, localizador, palabra);
+                if (path!=nullptr){
+                    closedir(directorio);
+                    return path;
+                }
+            }
+            memset(raiz, 0, 80);
+            strcpy(raiz, backup);
+        }
+        closedir(directorio);
+        return nullptr;
+    }
+    return nullptr;
+}
+
 int main() {
-    cout << "Diay maes, sinceramente no puedo hacer mucho sin el AVL, pero esto es lo que pienso que iría bien" << endl;
+    setlocale(LC_ALL, "spanish");
+    cout << "Bienvenido al buscador de archivos de Aldokler Ü" << endl;
+    cout << "Buscando archivo..." << endl;
+    DIR directorio;
+    struct dirent localizador;
+    char raiz[80];
+    strcpy(raiz, "C:/");
+    const char * archivo = "Main.png";
+    char * ruta = foundFile(raiz, &directorio, &localizador, archivo);
+    if (ruta!=nullptr){
+        cout << ruta << endl;
+        cout << "Archivo encontrado!" << endl;
+    }
+    else
+        cout << "Bro, no existe esa vaina..." << endl;
     /*
-    El trie que trae todas las palabras, cada palabra tiene una lista
-    con las lineas en las que aparece, esta lista se actualiza cada vez
-    que se inserta una palabra, de esta forma si inserta una repetida lo
-    que hace es agregar la linea en la que encontró la palabra dentro de
-    la lista de lineas de dicha palabra...
+        Por diversas razones esa vara no acepta cins...
 
-    Lo único que faltaría es que cuando busque las palabras indique en la
-    linea que está del documento, ya que se necesita ese dato para que se
-    pueda realizar la inserción de una palabra...
-
-    Si se elimina una palabra ese sistema se va a la mierda BTW...
-    No hay necesidad de eliminar palabras BTW....
-    */
-    Trie * ListaDePalabras = new Trie();
-    /*
-    #####################---NOTAS---########################
-
-    Se necesita leer el archivo y tener la posibilidad de leer cada linea
-    por separado, es decir, abre el archivo y lee la línea x y solo esa.
-
-    La clase Trie tiene una función llamada getLines, esta función recibe
-    un string por parámetro (una palabra) y regresa la lista de lines en las
-    que aparece, esta sería una ArrayList de enteros. Esta función puede
-    servir mucho para las funciones del menú.
-
-    Pienso que lo mejor sería que Keres investigue lo de leer archivos y lupus
-    siga con la interfaz, ahí yo voy a estar toqueteando la clase trie y demás
-    para ver que sea eficiente y por si falta algo en la parte de "controlador"
-    por así decirlo... igual puede ayudar en cualquier otra cosa que ocupen, supongo.
+        igual sirve, pueden cambiar el main.png por el nombre del archivo que quieren buscar
     */
     return 0;
 }

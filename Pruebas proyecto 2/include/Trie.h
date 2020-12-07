@@ -2,7 +2,6 @@
 #define TRIE_H
 
 #include "TrieNode.h"
-#include "DLinkedList.h"
 #include "arraylist.h"
 #include <string>
 #include <stdexcept>
