@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <dirent.h>
+#include <fstream>
 #include "include/Trie.h"
 
 using namespace std;
@@ -41,8 +42,8 @@ int main() {
     DIR directorio;
     struct dirent localizador;
     char raiz[80];
-    strcpy(raiz, "C:/");
-    const char * archivo = "Main.png";
+    strcpy(raiz, "C:/Libros");
+    const char * archivo = "Confesiones.txt";
     char * ruta = foundFile(raiz, &directorio, &localizador, archivo);
     if (ruta!=nullptr){
         cout << ruta << endl;
@@ -55,5 +56,22 @@ int main() {
 
         igual sirve, pueden cambiar el main.png por el nombre del archivo que quieren buscar
     */
+    ifstream * texto = new ifstream();
+    texto->open(ruta, ifstream::in);
+    int lineCounter = 0;
+    char linea[10000];
+    while (texto->good()){
+        texto->getline(linea, 10000, '\n');
+        lineCounter++;
+        cout << lineCounter << ":   ";
+        cout << linea << endl;
+        /*
+            Aquí vendría la llamada a la función que extrae las palabras y las va metiendo en el arbol
+            lineCounter se deja así, nada más saca la última línea que leyó
+
+            pa que sepan, lo voy a ir haciendo :)
+        */
+    }
+    texto->close();
     return 0;
 }
