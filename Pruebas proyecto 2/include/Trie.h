@@ -75,10 +75,14 @@ private:
 public:
     Trie() {
         root = new TrieNode();
+        palabras = new ArrayList<string>(1048576);
+        lineas = new ArrayList<ArrayList<int>* >(131072);
     }
     ~Trie() {
         clear();
         delete root;
+        delete palabras;
+        delete lineas;
     }
     void insert(string word, int line) {
         if (containsWord(word)){

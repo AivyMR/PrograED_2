@@ -6,6 +6,33 @@
 
 using namespace std;
 
+bool hasString(string signos, char caracter){
+    for (unsigned int x = 0; x < signos.size(); x++){
+        if (signos.at(x) == caracter)
+            return true;
+    }
+    return false;
+}
+
+string firstWord(string linea){
+    string word;
+    string signos (".,: '()?¡¿!;0123456789  ");
+    string comillas (1, '"');
+    for (unsigned int x = 0; x < linea.size(); x++){
+        if (hasString(signos, linea.front())){
+            linea.erase(0,1);
+            return word;
+        }
+        else if (hasString(comillas, linea.front())){
+            linea.erase(0,1);
+            return word;
+        }
+        word.append(linea, 0, 1);
+        linea.erase(0,1);
+    }
+    return word;
+}
+
 char * foundFile(char raiz[], DIR * directorio, struct dirent * localizador, const char * palabra){
     char backup[500];
     strcpy(backup, raiz);
@@ -43,35 +70,41 @@ int main() {
     struct dirent localizador;
     char raiz[80];
     strcpy(raiz, "C:/Libros");
-    const char * archivo = "Confesiones.txt";
+    const char * archivo = "WarPeace.txt";
     char * ruta = foundFile(raiz, &directorio, &localizador, archivo);
-    if (ruta!=nullptr){
-        cout << ruta << endl;
-        cout << "Archivo encontrado!" << endl;
+    if (ruta == nullptr){
+        cout << "Archivo no encontrado" << endl;
+        return 1;
     }
-    else
-        cout << "Bro, no existe esa vaina..." << endl;
-    /*
-        Por diversas razones esa vara no acepta cins...
-
-        igual sirve, pueden cambiar el main.png por el nombre del archivo que quieren buscar
-    */
+    cout << "Archivo encontrado!" << endl;
     ifstream * texto = new ifstream();
     texto->open(ruta, ifstream::in);
     int lineCounter = 0;
     char linea[10000];
+    string word;
+    Trie * arbol = new Trie();
+    cout << "Extrayendo palabras..." << endl;
     while (texto->good()){
         texto->getline(linea, 10000, '\n');
         lineCounter++;
-        cout << lineCounter << ":   ";
-        cout << linea << endl;
-        /*
-            Aquí vendría la llamada a la función que extrae las palabras y las va metiendo en el arbol
-            lineCounter se deja así, nada más saca la última línea que leyó
-
-            pa que sepan, lo voy a ir haciendo :)
-        */
+        for (int x = 0; x < 10000; x++){
+            if (linea[x] == *"\0")
+                break;
+            else
+                word+= linea[x];
+        }
+        while (word.size() > 0){
+            string palabra = firstWord(word);
+            if (palabra.size() >= 1)
+                word.erase(0, palabra.size());
+            else
+                word.erase(0, 1);
+            arbol->insert(palabra, lineCounter);
+        }
+        word.clear();
     }
     texto->close();
+    cout << "Palabras extraídas!" << endl;
+    delete arbol;
     return 0;
 }

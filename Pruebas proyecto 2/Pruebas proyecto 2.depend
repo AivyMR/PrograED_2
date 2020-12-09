@@ -1,12 +1,12 @@
 # depslib dependency file v1.0
-1607486356 source:e:\universidad\semestre 2\proyectos ed, ed y eddy\pruebas proyecto 2\main.cpp
+1607496727 source:e:\universidad\semestre 2\proyectos ed, ed y eddy\pruebas proyecto 2\main.cpp
 	<iostream>
 	<string>
 	<dirent.h>
 	<fstream>
 	"include/Trie.h"
 
-1607306124 e:\universidad\semestre 2\proyectos ed, ed y eddy\pruebas proyecto 2\include\trie.h
+1607497179 e:\universidad\semestre 2\proyectos ed, ed y eddy\pruebas proyecto 2\include\trie.h
 	"TrieNode.h"
 	"arraylist.h"
 	<string>
