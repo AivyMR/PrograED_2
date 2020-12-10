@@ -64,13 +64,17 @@ char * foundFile(char raiz[], DIR * directorio, struct dirent * localizador, con
 
 int main() {
     setlocale(LC_ALL, "spanish");
+    char raiz[80];
+    char file[50];
     cout << "Bienvenido al buscador de archivos de Aldokler Ü" << endl;
-    cout << "Buscando archivo..." << endl;
+    cout << "Ingrese el directorio en donde desea realizar la búsqueda: ";
+    cin >> raiz;
+    cout << "Inrgese el nombre del archivo que desea buscar (incluya la extensión del archivo): ";
+    cin >> file;
     DIR directorio;
     struct dirent localizador;
-    char raiz[80];
-    strcpy(raiz, "C:/Libros");
-    const char * archivo = "WarPeace.txt";
+    const char * archivo = file;
+    cout << "Buscando archivo..." << endl;
     char * ruta = foundFile(raiz, &directorio, &localizador, archivo);
     if (ruta == nullptr){
         cout << "Archivo no encontrado" << endl;
@@ -105,6 +109,9 @@ int main() {
     }
     texto->close();
     cout << "Palabras extraídas!" << endl;
+    /*
+        Menú aquí
+    */
     delete arbol;
     return 0;
 }

@@ -64,12 +64,8 @@ private:
 
     void addLine(string word, int line){
         int index = palabras->indexOf(word);
-        if (index < 0)
-            cout << "Palabra no encontrada" << endl;
-        else {
-            lineas->goToPos(index);
-            lineas->getElement()->append(line);
-        }
+        lineas->goToPos(index);
+        lineas->getElement()->append(line);
     }
 
 public:
@@ -151,8 +147,10 @@ public:
 
     ArrayList<int> * getLines(string word){
         int index = palabras->indexOf(word);
-        if (index < 0)
+        if (index < 0){
             cout << "Palabra no encontrada" << endl;
+            return nullptr;
+        }
         else {
             lineas->goToPos(index);
             return lineas->getElement();
