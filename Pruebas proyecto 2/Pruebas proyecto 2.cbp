@@ -47,6 +47,7 @@
 		<Unit filename="include/Trie.h" />
 		<Unit filename="include/TrieNode.h" />
 		<Unit filename="include/arraylist.h" />
+		<Unit filename="include/sortedarraylist.h" />
 		<Unit filename="main.cpp" />
 		<Extensions />
 	</Project>

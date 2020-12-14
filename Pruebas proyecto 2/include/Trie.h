@@ -156,6 +156,10 @@ public:
             return lineas->getElement();
         }
     }
+
+    int getLine(string word){
+        return palabras->indexOf(word);
+    }
 };
 
 #endif // TRIE_H
