@@ -1,13 +1,135 @@
-#include <iostream>
-#include <string>
 #include <dirent.h>
 #include <fstream>
 #include <limits>
+#include <stdio.h>
+#include <wchar.h>
+#include <locale.h>
+#include <stdlib.h>
+#include <iostream>
+#include <string>
+#include <vector>
 #include "include/Trie.h"
 #include "sortedarraylist.h"
 
 using namespace std;
 
+
+int topMenu(){
+     int choiceTM=0;
+    cout<<"-----------TOP MENï¿½-----------\t"<<endl<<endl;
+    cout<< "\tPresione 1 para ver las palabras mï¿½s utilizadas"<< endl;
+    cout<< "\tPresione 2 para ver las palabras menos utilizadas"<< endl;
+    cout<< "\tPresione 3 para regresar"<< endl;
+    while (!(cin>>choiceTM) ||!(choiceTM==1||choiceTM==2||choiceTM==3) ){
+            cout<<"Por favor ingrese una opciï¿½n vï¿½lida."<<endl<<endl;
+            cout<<"-----------TOP MENï¿½-----------\t"<<endl<<endl;
+            cout<< "\tPresione 1 para ver las palabras mï¿½s utilizadas"<< endl;
+            cout<< "\tPresione 2 para ver las palabras menos utilizadas"<< endl;
+            cout<< "\tPresione 3 para regresar"<< endl;
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(),'\n');
+    }
+
+
+    switch (choiceTM){
+            case 1://palabras mas utilizadas
+                break;
+
+            case 2: //menos utilizadas
+                break;
+
+            case 3: //regresar
+                return 0;
+            default:
+                break;
+    }
+    return 0;
+}
+
+int menu(int choiceM){
+    do{
+        while (!(cin>>choiceM) ||!(choiceM==1||choiceM==2||choiceM==3||choiceM==4||choiceM==5) ){
+            cout<< "Entrada invï¿½lida, por favor vuelva a intentarlo"<< endl<< endl;
+            cout<<"-----------MENï¿½-----------\t"<<endl<<endl;
+            cout<< "\tPresione 1 para hacer una consulta por prefijo."<< endl;
+            cout<< "\tPresione 2 para hacer busqueda de palabra."<< endl;
+            cout<< "\tPresione 3 para hacer por cantidad de letras."<< endl;
+            cout<< "\tPresione 4 para ver las palabras mas utilizadas."<< endl;
+            cout<< "\tPresione 5 para terminar el programa."<< endl;
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(),'\n');
+        }
+        switch (choiceM){
+            case 1: //consulta por prefijo
+                break;
+
+            case 2: // busqueda de palabra
+                break;
+
+            case 3: //por cantidad de letras
+                break;
+
+            case 4: // ver top
+                break;
+
+            case 5: //salir del programa
+                break;
+
+            default:
+                break;
+        }
+            cout<<"-----------MENï¿½-----------\t"<<endl<<endl;
+            cout<< "\tPresione 1 para hacer una consulta por prefijo."<< endl;
+            cout<< "\tPresione 2 para hacer busqueda de palabra."<< endl;
+            cout<< "\tPresione 3 para hacer por cantidad de letras."<< endl;
+            cout<< "\tPresione 4 para ver las palabras mas utilizadas."<< endl;
+            cout<< "\tPresione 5 para terminar el programa."<< endl;
+        }while (true);
+    return 0;
+}
+
+bool fileExists(string fileName){
+    fstream archivo(fileName);
+    return archivo.is_open();
+}
+
+int main(){
+    setlocale(LC_ALL, "spanish");
+    string fileName;
+    cout<<"Bienvenido a la indizaciï¿½n de texto con Tries :D"<<endl<<endl;
+    cout<< "Por favor indique el archivo a procesar:"<< endl;
+    cin >>fileName;
+    if(fileExists(fileName)){// verifica si el file existe
+
+        fstream file("scores.txt"); // abre el archivo txt y lo procesa, guardando cada linea en un indice del vector lines
+        vector<string> lines;
+        string line;
+        file.open(fileName, ios::in);
+        while(getline(file, line))
+            lines.push_back(line);
+        file.close();
+
+        int choiceM=0;
+        cout<< "Archivo procesado!!!"<< endl;
+        cout<< "\tPresione 1 para hacer una consulta por prefijo."<< endl;
+        cout<< "\tPresione 2 para hacer busqueda de palabra."<< endl;
+        cout<< "\tPresione 3 para hacer por cantidad de letras."<< endl;
+        cout<< "\tPresione 4 para ver las palabras mas utilizadas."<< endl;
+        cout<< "\tPresione 5 para terminar el programa."<< endl;
+        menu(choiceM);
+        return 0;
+    }
+    else{
+        cout<< "El archivo indicado no existe :("<< endl;
+        return 0;
+    }
+}
+/*
+ *-------------------------------------------------------------------------------------------------------------------------------
+ *-------------------------------------------------------------------------------------------------------------------------------
+ */
+
+ 
 bool hasString(string signos, char caracter){
     for (unsigned int x = 0; x < signos.size(); x++){
         if (signos.at(x) == caracter)
@@ -18,7 +140,7 @@ bool hasString(string signos, char caracter){
 
 string firstWord(string linea){
     string word;
-    string signos (".,: '()?¡¿!;0123456789  ");
+    string signos (".,: '()?ï¿½ï¿½!;0123456789  ");
     string comillas (1, '"');
     for (unsigned int x = 0; x < linea.size(); x++){
         if (hasString(signos, linea.front())){
@@ -109,10 +231,10 @@ int main() {
     setlocale(LC_ALL, "spanish");
     char raiz[80];
     char file[50];
-    cout << "Bienvenido al buscador de archivos de Aldokler Ü" << endl;
-    cout << "Ingrese el directorio en donde desea realizar la búsqueda: ";
+    cout << "Bienvenido al buscador de archivos de Aldokler ï¿½" << endl;
+    cout << "Ingrese el directorio en donde desea realizar la bï¿½squeda: ";
     cin >> raiz;
-    cout << "Inrgese el nombre del archivo que desea buscar (incluya la extensión del archivo): ";
+    cout << "Inrgese el nombre del archivo que desea buscar (incluya la extensiï¿½n del archivo): ";
     cin >> file;
     DIR directorio;
     struct dirent localizador;
@@ -153,7 +275,7 @@ int main() {
         word.clear();
     }
     texto->close();
-    cout << "Palabras extraídas!" << endl << endl;
+    cout << "Palabras extraï¿½das!" << endl << endl;
 
     //-------------------------------------------------------------------------------------
     //---------------------------------------menu------------------------------------------
