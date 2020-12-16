@@ -64,3 +64,62 @@
 	"DLinkedList.h"
 	<stdexcept>
 
+1608146564 source:c:\users\26399\github\prograed_2\pruebas proyecto 2\main.cpp
+	<dirent.h>
+	<fstream>
+	<limits>
+	<stdio.h>
+	<wchar.h>
+	<locale.h>
+	<stdlib.h>
+	<iostream>
+	<string>
+	<vector>
+	<cstring>
+	"include/Trie.h"
+	"sortedarraylist.h"
+
+1608006898 c:\users\26399\github\prograed_2\pruebas proyecto 2\include\trie.h
+	"TrieNode.h"
+	"arraylist.h"
+	<string>
+	<stdexcept>
+	<iostream>
+
+1607551754 c:\users\26399\github\prograed_2\pruebas proyecto 2\include\trienode.h
+	"AVLTreeDictionary.h"
+
+1607551754 c:\users\26399\github\prograed_2\pruebas proyecto 2\include\avltreedictionary.h
+	<iostream>
+	"AVLTree.h"
+	"Dictionary.h"
+	"KVPair.h"
+
+1607551754 c:\users\26399\github\prograed_2\pruebas proyecto 2\include\avltree.h
+	"BSTNode.h"
+	"DLinkedList.h"
+	<stdexcept>
+
+1607551754 c:\users\26399\github\prograed_2\pruebas proyecto 2\include\bstnode.h
+
+1607551754 c:\users\26399\github\prograed_2\pruebas proyecto 2\include\dlinkedlist.h
+	"list.h"
+	"DNode.h"
+	<stdexcept>
+
+1607551754 c:\users\26399\github\prograed_2\pruebas proyecto 2\include\list.h
+
+1607551754 c:\users\26399\github\prograed_2\pruebas proyecto 2\include\dnode.h
+
+1607551754 c:\users\26399\github\prograed_2\pruebas proyecto 2\include\dictionary.h
+	"List.h"
+
+1607551754 c:\users\26399\github\prograed_2\pruebas proyecto 2\include\kvpair.h
+
+1607551754 c:\users\26399\github\prograed_2\pruebas proyecto 2\include\arraylist.h
+	"list.h"
+	<stdexcept>
+
+1607551754 c:\users\26399\github\prograed_2\pruebas proyecto 2\include\sortedarraylist.h
+	"arraylist.h"
+

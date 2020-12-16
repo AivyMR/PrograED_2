@@ -8,6 +8,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <cstring>
 #include "include/Trie.h"
 #include "sortedarraylist.h"
 
@@ -93,7 +94,7 @@ bool fileExists(string fileName){
     return archivo.is_open();
 }
 
-int main(){
+int main2(){
     setlocale(LC_ALL, "spanish");
     string fileName;
     cout<<"Bienvenido a la indizaci�n de texto con Tries :D"<<endl<<endl;
@@ -129,7 +130,7 @@ int main(){
  *-------------------------------------------------------------------------------------------------------------------------------
  */
 
- 
+
 bool hasString(string signos, char caracter){
     for (unsigned int x = 0; x < signos.size(); x++){
         if (signos.at(x) == caracter)
