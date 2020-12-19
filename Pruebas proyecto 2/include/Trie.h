@@ -160,6 +160,20 @@ public:
     int getLine(string word){
         return palabras->indexOf(word);
     }
+
+    AVLTreeDictionary<string, int> * searchByLen(unsigned int tamano){
+        AVLTreeDictionary<string, int> * words = new AVLTreeDictionary<string, int>();
+        for (palabras->goToStart(); !palabras->atEnd(); palabras->next()){
+            string wort = palabras->getElement();
+            if (wort.size() == tamano){
+                int index = palabras->indexOf(wort);
+                lineas->goToPos(index);
+                int veces = lineas->getElement()->getSize();
+                words->insert(wort, veces);
+            }
+        }
+        return words;
+    }
 };
 
 #endif // TRIE_H

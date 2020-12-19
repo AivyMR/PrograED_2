@@ -67,7 +67,7 @@ bool hasString(string signos, char caracter){
 
 string firstWord(string linea){
     string word;
-    string signos (".,: '()?��!;0123456789  ");
+    string signos (".,: '()?!;0123456789");
     string comillas (1, '"');
     for (unsigned int x = 0; x < linea.size(); x++){
         if (hasString(signos, linea.front())){
@@ -149,6 +149,24 @@ void searchWord(Trie * arbol, string palabra, ArrayList<string> * lineas){
     cout << endl;
 }
 
+void searchBySize(Trie * arbol, unsigned int tamano){
+    cout << "Buscando palabras..." << endl;
+    AVLTreeDictionary<string, int> * diccionario = arbol->searchByLen(tamano);
+    List<string> * palabras = diccionario->getKeys();
+    List<int> * veces = diccionario->getValues();
+    cout << "Palabras encontradas!" << endl;
+    veces->goToStart();
+    for (palabras->goToStart(); !palabras->atEnd(); palabras->next()){
+        cout << "La Palabra (" + palabras->getElement() + ") \t aparece";
+        cout << veces->getElement();
+        cout << "\t veces" << endl;
+        veces->next();
+    }
+    delete diccionario;
+    delete palabras;
+    delete veces;
+}
+
 /*
  *-------------------------------------------------------------------------------------------------------------------------------
  *-------------------------------------------------------------------------------------------------------------------------------
@@ -190,13 +208,14 @@ int topMenu(Trie * arbol){
 int menu(int choiceM, Trie * arbol, ArrayList<string> * lineas){
     string prefijo;
     string palabra;
+    unsigned int tamano;
     do{
         while (!(cin>>choiceM) ||!(choiceM==1||choiceM==2||choiceM==3||choiceM==4||choiceM==5) ){
-            cout<< "Entrada inv�lida, por favor vuelva a intentarlo"<< endl<< endl;
-            cout<<"-----------MEN�-----------\t"<<endl<<endl;
+            cout<< "Entrada inválida, por favor vuelva a intentarlo"<< endl<< endl;
+            cout<<"-----------MENÚ-----------\t"<<endl<<endl;
             cout<< "\tPresione 1 para hacer una consulta por prefijo."<< endl;
-            cout<< "\tPresione 2 para hacer busqueda de palabra."<< endl;
-            cout<< "\tPresione 3 para hacer por cantidad de letras."<< endl;
+            cout<< "\tPresione 2 para hacer búsqueda de palabra."<< endl;
+            cout<< "\tPresione 3 para realizar un búsqueda por cantidad de letras."<< endl;
             cout<< "\tPresione 4 para ver las palabras mas utilizadas."<< endl;
             cout<< "\tPresione 5 para terminar el programa."<< endl;
             cin.clear();
@@ -216,6 +235,9 @@ int menu(int choiceM, Trie * arbol, ArrayList<string> * lineas){
                 break;
 
             case 3: //por cantidad de letras
+                cout << "Ingrese la cantidad de letras para la búsqueda: ";
+                cin >> tamano;
+                searchBySize(arbol, tamano);
                 break;
 
             case 4: // ver top
@@ -229,7 +251,7 @@ int menu(int choiceM, Trie * arbol, ArrayList<string> * lineas){
             default:
                 break;
         }
-            cout<<"-----------MEN�-----------\t"<<endl<<endl;
+            cout<<"-----------MENÚ-----------\t"<<endl<<endl;
             cout<< "\tPresione 1 para hacer una consulta por prefijo."<< endl;
             cout<< "\tPresione 2 para hacer busqueda de palabra."<< endl;
             cout<< "\tPresione 3 para hacer por cantidad de letras."<< endl;
@@ -270,7 +292,7 @@ int main() {
     texto->open(ruta, ifstream::in);
     int lineCounter = 0;
     char linea[10000];
-    string word;
+    string lineText;
     Trie * arbol = new Trie();
     ArrayList<string> * lineas = new ArrayList<string>(60000);
     cout << "Extrayendo palabras..." << endl;
@@ -281,18 +303,18 @@ int main() {
             if (linea[x] == *"\0")
                 break;
             else
-                word+= linea[x];
+                lineText+= linea[x];
         }
-        lineas->append(word);
-        while (word.size() > 0){
-            string palabra = firstWord(word);
+        lineas->append(lineText);
+        while (lineText.size() > 0){
+            string palabra = firstWord(lineText);
             if (palabra.size() >= 1)
-                word.erase(0, palabra.size());
+                lineText.erase(0, palabra.size());
             else
-                word.erase(0, 1);
+                lineText.erase(0, 1);
             arbol->insert(palabra, lineCounter);
         }
-        word.clear();
+        lineText.clear();
     }
     texto->close();
 
