@@ -203,6 +203,7 @@ void showTop(Trie * arbol, int n, bool top){
 
 int topMenu(Trie * arbol){
      int choiceTM=0;
+    int n = 0;
     cout<<"-----------TOP MEN�-----------\t"<<endl<<endl;
     cout<< "\tPresione 1 para ver las palabras m�s utilizadas"<< endl;
     cout<< "\tPresione 2 para ver las palabras menos utilizadas"<< endl;
@@ -220,9 +221,15 @@ int topMenu(Trie * arbol){
 
     switch (choiceTM){
             case 1://palabras mas utilizadas
+                cout << "ingrese la cantidad de palabras que desea ver: ";
+                cin >> n;
+                showTop(arbol, n, true);
                 break;
 
             case 2: //menos utilizadas
+                cout << "ingrese la cantidad de palabras que desea ver: ";
+                cin >> n;
+                showTop(arbol, n, false);
                 break;
 
             case 3: //regresar
