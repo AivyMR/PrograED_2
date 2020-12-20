@@ -3,6 +3,7 @@
 
 #include "TrieNode.h"
 #include "arraylist.h"
+#include "SortedArrayDictionary.h"
 #include <string>
 #include <stdexcept>
 #include <iostream>
@@ -66,6 +67,16 @@ private:
         int index = palabras->indexOf(word);
         lineas->goToPos(index);
         lineas->getElement()->append(line);
+    }
+
+    SortedArrayDictionary<int, string> * getOcurrences(){
+        SortedArrayDictionary<int, string> * veces = new SortedArrayDictionary<int, string>();
+        palabras->goToStart();
+        for (lineas->goToStart(); !lineas->atEnd(); lineas->next()){
+            veces->insert(lineas->getElement()->getSize(), palabras->getElement());
+            palabras->next();
+        }
+        return veces;
     }
 
 public:
@@ -173,6 +184,28 @@ public:
             }
         }
         return words;
+    }
+
+    SortedArrayDictionary<int, string> * mostUsed(int n){
+        SortedArrayDictionary<int, string> * veces = getOcurrences();
+        SortedArrayDictionary<int, string> * top = new SortedArrayDictionary<int, string>();
+        for (int x = veces->getSize()-1; x >= veces->getSize()-n; x--){
+            KVPair<int, string> par = veces->getPair(x);
+            top->insert(par.getKey(), par.getValue());
+        }
+        delete veces;
+        return top;
+    }
+
+    SortedArrayDictionary<int, string> * lessUsed(int n){
+        SortedArrayDictionary<int, string> * veces = getOcurrences();
+        SortedArrayDictionary<int, string> * top = new SortedArrayDictionary<int, string>();
+        for (int x = 0; x < n; x++){
+            KVPair<int, string> par = veces->getPair(x);
+            top->insert(par.getKey(), par.getValue());
+        }
+        delete veces;
+        return top;
     }
 };
 

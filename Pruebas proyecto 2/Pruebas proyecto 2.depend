@@ -123,7 +123,7 @@
 1607551754 c:\users\26399\github\prograed_2\pruebas proyecto 2\include\sortedarraylist.h
 	"arraylist.h"
 
-1608336237 source:d:\users\xdavi\github\prograed_2\pruebas proyecto 2\main.cpp
+1608503309 source:d:\users\xdavi\github\prograed_2\pruebas proyecto 2\main.cpp
 	<dirent.h>
 	<fstream>
 	<limits>
@@ -138,9 +138,10 @@
 	"include/Trie.h"
 	"sortedarraylist.h"
 
-1608338397 d:\users\xdavi\github\prograed_2\pruebas proyecto 2\include\trie.h
+1608502806 d:\users\xdavi\github\prograed_2\pruebas proyecto 2\include\trie.h
 	"TrieNode.h"
 	"arraylist.h"
+	"SortedArrayDictionary.h"
 	<string>
 	<stdexcept>
 	<iostream>
@@ -181,4 +182,10 @@
 
 1601070260 d:\users\xdavi\github\prograed_2\pruebas proyecto 2\include\sortedarraylist.h
 	"arraylist.h"
+
+1608501391 d:\users\xdavi\github\prograed_2\pruebas proyecto 2\include\sortedarraydictionary.h
+	<iostream>
+	"sortedarraylist.h"
+	"Dictionary.h"
+	"KVPair.h"
 

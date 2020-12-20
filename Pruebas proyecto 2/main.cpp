@@ -167,6 +167,34 @@ void searchBySize(Trie * arbol, unsigned int tamano){
     delete veces;
 }
 
+void showTop(Trie * arbol, int n, bool top){
+    cout << "Ordenando y obteniendo palabras..." << endl;
+    SortedArrayDictionary<int, string> * diccionario;
+    if (top)
+        diccionario = arbol->mostUsed(n);
+    else
+        diccionario = arbol->lessUsed(n);
+    cout << "Palabras ordenadas!" << endl;
+    List<string> * palabras = diccionario->getValues();
+    List<int> * veces = diccionario->getKeys();
+    cout << "Palabras obtenidas!" << endl;
+    veces->goToStart();
+    int x = 1;
+    for (palabras->goToStart(); !palabras->atEnd(); palabras->next()){
+        cout << "Palabra N° ";
+        cout << x;
+        cout << ": (" << palabras->getElement() << ")." << endl;
+        cout << "Aparece ";
+        cout << veces->getElement();
+        cout << " en el texto." << endl;
+        veces->next();
+        x++;
+    }
+    delete diccionario;
+    delete palabras;
+    delete veces;
+}
+
 /*
  *-------------------------------------------------------------------------------------------------------------------------------
  *-------------------------------------------------------------------------------------------------------------------------------

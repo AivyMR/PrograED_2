@@ -44,6 +44,7 @@
 		<Unit filename="include/LinkedList.h" />
 		<Unit filename="include/List.h" />
 		<Unit filename="include/Node.h" />
+		<Unit filename="include/SortedArrayDictionary.h" />
 		<Unit filename="include/Trie.h" />
 		<Unit filename="include/TrieNode.h" />
 		<Unit filename="include/arraylist.h" />
