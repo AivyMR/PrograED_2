@@ -2,6 +2,9 @@
 #define NODE_H
 #include <cstdlib>
 
+//Clase creada por Mauricio Avilés
+//Se encarga de crear un nodo de tipo E con un puntero a otro nodo de tipo E
+
 template <typename E>
 class Node {
 public:

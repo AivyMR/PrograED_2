@@ -123,7 +123,7 @@
 1607551754 c:\users\26399\github\prograed_2\pruebas proyecto 2\include\sortedarraylist.h
 	"arraylist.h"
 
-1608503309 source:d:\users\xdavi\github\prograed_2\pruebas proyecto 2\main.cpp
+1608670367 source:d:\users\xdavi\github\prograed_2\pruebas proyecto 2\main.cpp
 	<dirent.h>
 	<fstream>
 	<limits>
@@ -135,10 +135,11 @@
 	<string>
 	<vector>
 	<cstring>
+	<windows.h>
 	"include/Trie.h"
 	"sortedarraylist.h"
 
-1608502806 d:\users\xdavi\github\prograed_2\pruebas proyecto 2\include\trie.h
+1608668849 d:\users\xdavi\github\prograed_2\pruebas proyecto 2\include\trie.h
 	"TrieNode.h"
 	"arraylist.h"
 	"SortedArrayDictionary.h"

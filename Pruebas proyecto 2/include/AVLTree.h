@@ -5,6 +5,9 @@
 #include "DLinkedList.h"
 #include <stdexcept>
 
+//Clase creada por Mauricio Avilés
+//Se encarga de crear un arbol AVL, el cual se encarga de balancear sus hojas para que el árbol no sea muy profundo.
+
 using std::runtime_error;
 using std::cout;
 using std::endl;

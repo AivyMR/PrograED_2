@@ -8,6 +8,13 @@
 #include <stdexcept>
 #include <iostream>
 
+//Clase creada por el profesor Mauricio Avilés y modificada por David Pastor
+//Se encarga de implementar la estructura Trie, la cual almacena palabras utilizando nodos Trie.
+//Estos nodos se encargan de almacenar los caracteres de las palabras y la cantidad de palabras
+//en las que se utiliza cada caracter.
+//Además de esto, se hicieron modificaciones para que se guarden en una arraylist la lista de lineas
+//en las que aparece cada palabra en el texto.
+
 using namespace std;
 
 class Trie {
@@ -189,7 +196,7 @@ public:
     SortedArrayDictionary<int, string> * mostUsed(int n){
         SortedArrayDictionary<int, string> * veces = getOcurrences();
         SortedArrayDictionary<int, string> * top = new SortedArrayDictionary<int, string>();
-        for (int x = veces->getSize()-1; x >= veces->getSize()-n; x--){
+        for (int x = 0; x < n; x++){
             KVPair<int, string> par = veces->getPair(x);
             top->insert(par.getKey(), par.getValue());
         }

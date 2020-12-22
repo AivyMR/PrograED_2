@@ -9,6 +9,7 @@
 #include <string>
 #include <vector>
 #include <cstring>
+#include <windows.h>
 #include "include/Trie.h"
 #include "sortedarraylist.h"
 
@@ -56,7 +57,8 @@ int main2(){
  *-------------------------------------------------------------------------------------------------------------------------------
  */
 
-
+//Función creada por David Pastor
+//Se encarga de verificar si un string contiene cierto caractér.
 bool hasString(string signos, char caracter){
     for (unsigned int x = 0; x < signos.size(); x++){
         if (signos.at(x) == caracter)
@@ -65,9 +67,11 @@ bool hasString(string signos, char caracter){
     return false;
 }
 
+//Función creada por David Pastor
+//Se encarga de extraer la primera palabra de un string.
 string firstWord(string linea){
     string word;
-    string signos (".,: '()?!;0123456789");
+    string signos (".,: '()?!;0123456789-*¿¡");
     string comillas (1, '"');
     for (unsigned int x = 0; x < linea.size(); x++){
         if (hasString(signos, linea.front())){
@@ -84,6 +88,9 @@ string firstWord(string linea){
     return word;
 }
 
+//Función creada por David Pastor
+//Busca un archivo de manera recursiva dentro de todas las subcarpetas de un directorio
+/*
 char * foundFile(char raiz[], DIR * directorio, struct dirent * localizador, const char * palabra){
     char backup[500];
     strcpy(backup, raiz);
@@ -112,12 +119,14 @@ char * foundFile(char raiz[], DIR * directorio, struct dirent * localizador, con
     }
     return nullptr;
 }
-
+*/
 /*
  *-------------------------------------------------------------------------------------------------------------------------------
  *-------------------------------------------------------------------------------------------------------------------------------
  */
 
+//Función creada por David Pastor
+//Se encarga de buscar todas las palabras que contienen cierto prefijo.
 void prefixConsult(Trie * arbol, string prefijo){
     cout << "Buscando Palabras..." << endl;
     List<string> * palabras = arbol->getMatches(prefijo);
@@ -132,6 +141,8 @@ void prefixConsult(Trie * arbol, string prefijo){
     cout << endl;
 }
 
+//Función creada por David Pastor
+//Se encarga de buscar una palabra y mostrar todas las líneas de texto en las que aparece.
 void searchWord(Trie * arbol, string palabra, ArrayList<string> * lineas){
     cout << "Buscando palabra..." << endl;
     if (!arbol->containsWord(palabra)){
@@ -149,6 +160,8 @@ void searchWord(Trie * arbol, string palabra, ArrayList<string> * lineas){
     cout << endl;
 }
 
+//Función creada por David Pastor
+//Se encarga de buscar todas las palabras que contienen cierto número de letras.
 void searchBySize(Trie * arbol, unsigned int tamano){
     cout << "Buscando palabras..." << endl;
     AVLTreeDictionary<string, int> * diccionario = arbol->searchByLen(tamano);
@@ -157,9 +170,9 @@ void searchBySize(Trie * arbol, unsigned int tamano){
     cout << "Palabras encontradas!" << endl;
     veces->goToStart();
     for (palabras->goToStart(); !palabras->atEnd(); palabras->next()){
-        cout << "La Palabra (" + palabras->getElement() + ") \t aparece";
+        cout << "La Palabra (" + palabras->getElement() + ") \t aparece ";
         cout << veces->getElement();
-        cout << "\t veces" << endl;
+        cout << " veces en el texto" << endl;
         veces->next();
     }
     delete diccionario;
@@ -167,6 +180,8 @@ void searchBySize(Trie * arbol, unsigned int tamano){
     delete veces;
 }
 
+//Función creada por David Pastor
+//Se encarga de mostrar las palabras más o menos utilizadas en el texto.
 void showTop(Trie * arbol, int n, bool top){
     cout << "Ordenando y obteniendo palabras..." << endl;
     SortedArrayDictionary<int, string> * diccionario;
@@ -186,7 +201,7 @@ void showTop(Trie * arbol, int n, bool top){
         cout << ": (" << palabras->getElement() << ")." << endl;
         cout << "Aparece ";
         cout << veces->getElement();
-        cout << " en el texto." << endl;
+        cout << " veces en el texto." << endl;
         veces->next();
         x++;
     }
@@ -200,7 +215,8 @@ void showTop(Trie * arbol, int n, bool top){
  *-------------------------------------------------------------------------------------------------------------------------------
  */
 
-
+//Funciones creadas por Aivy y Samuel
+//Se encargan de mostrar la interfaz al usuario para que este realice las consultas que desee hacer.
 int topMenu(Trie * arbol){
      int choiceTM=0;
     int n = 0;
@@ -301,19 +317,23 @@ int menu(int choiceM, Trie * arbol, ArrayList<string> * lineas){
  *-------------------------------------------------------------------------------------------------------------------------------
  */
 
+//Función creada por David, Aivy y Samuel
+//Se encarga de abrir el archivo solicitado y extraer sus palabras para guardarlas en un Trie.
 int main() {
-    setlocale(LC_ALL, "spanish");
-    char raiz[80];
+    setlocale(LC_ALL, "ES");
+    SetConsoleCP(1252);
+    SetConsoleOutputCP(1252);
+    //char raiz[80];
     char file[50];
     cout << "Bienvenido al programa que procesa textos :)" << endl;
     cout << "Este programa se encarga de procesar un archivo tipo txt y extraer todas las palabras que contiene dicho archivo." << endl;
     cout << "Podrá realizar busquedas de palabras y ver cuales son las palabras más utilizadas y las menos utilizadas." << endl;
-    cout << "Para iniciar porfavor proporcione los datos solicitados:" << endl;
+    cout << "Para iniciar porfavor proporcione los datos solicitados:" << endl;/*
     cout << "---Ingrese el directorio en donde desea realizar la búsqueda: ";
-    cin >> raiz;
+    cin >> raiz;*/
     cout << "---Inrgese el nombre del archivo que desea buscar (incluya la extensión del archivo): ";
     cin >> file;
-    DIR directorio;
+    /*DIR directorio;
     struct dirent localizador;
     const char * archivo = file;
     cout << "Buscando archivo..." << endl;
@@ -322,9 +342,14 @@ int main() {
         cout << "Archivo no encontrado" << endl;
         return 1;
     }
-    cout << "Archivo encontrado!" << endl;
+    cout << "Archivo encontrado!" << endl;*/
     ifstream * texto = new ifstream();
+    char * ruta = file;
     texto->open(ruta, ifstream::in);
+    if (!texto->is_open()){
+        cout << "Archivo no encontrado" << endl;
+        return 1;
+    }
     int lineCounter = 0;
     char linea[10000];
     string lineText;

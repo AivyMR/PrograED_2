@@ -1,6 +1,9 @@
 #ifndef LIST_H
 #define LIST_H
 
+//Clase abstracta creada por Mauricio Avilés
+//Se encarga de definir las funciones que deben implementar sus clases hijas.
+
 template <typename E>
 class List {
 private:

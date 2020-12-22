@@ -1,6 +1,10 @@
 #ifndef KVPAIR_H
 #define KVPAIR_H
 
+//Clase creada por Mauricio Avilés
+//Se encarga de crear un par llave, valor de tipo K, V.
+//También define operaciones de comparación y asignación entre KVPairs
+
 template <typename K, typename V>
 class KVPair {
 private:

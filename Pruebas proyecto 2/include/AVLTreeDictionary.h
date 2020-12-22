@@ -6,6 +6,9 @@
 #include "Dictionary.h"
 #include "KVPair.h"
 
+//Clase creada por David Pastor
+//Se encarga de crear un diccionario utilizando un arbol AVL para almacenar los pares llave, valor de tipo K, V.
+
 using namespace std;
 
 template <typename K, typename V>

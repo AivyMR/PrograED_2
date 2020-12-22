@@ -3,6 +3,10 @@
 
 #include "AVLTreeDictionary.h"
 
+//Clase creada por el profesor Mauricio Avilés
+//Se encarga de crear un nodo Trie, el cual contiene un contador, un caracter y un diccionario con hijos.
+//Utiliza un diccionario AVLTree para almacenar a sus hijos.
+
 class TrieNode {
 private:
     bool isFinal;

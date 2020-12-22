@@ -5,6 +5,9 @@
 #include "list.h"
 #include <stdexcept>
 
+//Clase creada por Mauricio Avilés
+//Se encarga de crear una lista de elementos tipo E utilizando un array.
+
 using std::runtime_error;
 
 template <typename E>

@@ -1,6 +1,9 @@
 #ifndef BSTNODE_H
 #define BSTNODE_H
 
+//Clase creada por Mauricio Avilés
+//Se encarga de crear un nodo BST.
+
 template <typename E>
 class BSTNode {
 private:

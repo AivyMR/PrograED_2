@@ -3,6 +3,9 @@
 
 #include "List.h"
 
+//Clase abstracta creada por Mauricio Avilés
+//Se encarga de definir las funciones que deben implementar sus clases hijas.
+
 template <typename K, typename V>
 class Dictionary {
 public:

@@ -1,6 +1,9 @@
 #ifndef DNODE_H
 #define DNODE_H
 
+//Clase creada por Mauricio Avilés
+//Se encarga de crear un nodo doble de tipo E con dos punteros a otros nodos dobles de tipo E
+
 template <typename E>
 class DNode {
 private:

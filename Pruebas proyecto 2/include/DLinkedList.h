@@ -5,6 +5,10 @@
 #include "DNode.h"
 #include <stdexcept>
 
+//Clase creada por Mauricio Avilés
+//Hereda de la clase abstracta list.
+//Se encarga de crear una lista de elementos tipo E utilizando nodos dobles.
+
 using std::runtime_error;
 
 template <typename E>

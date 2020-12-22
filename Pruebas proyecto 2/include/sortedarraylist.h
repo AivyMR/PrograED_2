@@ -3,6 +3,11 @@
 
 #include "arraylist.h"
 
+//Clase creada por ???
+//Se encarga de implementar una arraylist que acomoda de manera automática los elementos
+//que se ingresan de menor a mayor.
+//Además implementa busqueda binaria para encontrar elementos dentro de la arraylist.
+
 template <typename E>
 class SortedArrayList : public ArrayList<E> {
 public:
