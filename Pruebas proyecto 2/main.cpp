@@ -320,7 +320,7 @@ int menu(int choiceM, Trie * arbol, ArrayList<string> * lineas){
 //Función creada por David, Aivy y Samuel
 //Se encarga de abrir el archivo solicitado y extraer sus palabras para guardarlas en un Trie.
 int main() {
-    setlocale(LC_ALL, "ES");
+    setlocale(LC_ALL, "spanish");
     SetConsoleCP(1252);
     SetConsoleOutputCP(1252);
     //char raiz[80];
