@@ -24,7 +24,7 @@ bool fileExists(string fileName){
 int main2(){
     setlocale(LC_ALL, "spanish");
     string fileName;
-    cout<<"Bienvenido a la indizaci�n de texto con Tries :D"<<endl<<endl;
+    cout<<"Bienvenido a la indización de texto con Tries :D"<<endl<<endl;
     cout<< "Por favor indique el archivo a procesar:"<< endl;
     cin >>fileName;
     if(fileExists(fileName)){// verifica si el file existe
@@ -220,14 +220,14 @@ void showTop(Trie * arbol, int n, bool top){
 int topMenu(Trie * arbol){
      int choiceTM=0;
     int n = 0;
-    cout<<"-----------TOP MEN�-----------\t"<<endl<<endl;
-    cout<< "\tPresione 1 para ver las palabras m�s utilizadas"<< endl;
+    cout<<"-----------TOP MENÚ-----------\t"<<endl<<endl;
+    cout<< "\tPresione 1 para ver las palabras mas utilizadas"<< endl;
     cout<< "\tPresione 2 para ver las palabras menos utilizadas"<< endl;
     cout<< "\tPresione 3 para regresar"<< endl;
     while (!(cin>>choiceTM) ||!(choiceTM==1||choiceTM==2||choiceTM==3) ){
-            cout<<"Por favor ingrese una opci�n v�lida."<<endl<<endl;
-            cout<<"-----------TOP MEN�-----------\t"<<endl<<endl;
-            cout<< "\tPresione 1 para ver las palabras m�s utilizadas"<< endl;
+            cout<<"Por favor ingrese una opción válida."<<endl<<endl;
+            cout<<"-----------TOP MENÚ-----------\t"<<endl<<endl;
+            cout<< "\tPresione 1 para ver las palabras más utilizadas"<< endl;
             cout<< "\tPresione 2 para ver las palabras menos utilizadas"<< endl;
             cout<< "\tPresione 3 para regresar"<< endl;
             cin.clear();
@@ -331,7 +331,7 @@ int main() {
     cout << "Para iniciar porfavor proporcione los datos solicitados:" << endl;/*
     cout << "---Ingrese el directorio en donde desea realizar la búsqueda: ";
     cin >> raiz;*/
-    cout << "---Inrgese el nombre del archivo que desea buscar (incluya la extensión del archivo): ";
+    cout << "---Ingrese el nombre del archivo que desea buscar (incluya la extensión del archivo): ";
     cin >> file;
     /*DIR directorio;
     struct dirent localizador;
