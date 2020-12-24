@@ -71,9 +71,9 @@ bool hasString(string signos, char caracter){
 //Se encarga de extraer la primera palabra de un string.
 string firstWord(string linea){
     string word;
-    string signos (".,: '()?!;0123456789-*¿¡");
+    string signos (".,: '()?!;0123456789-*¿¡«»");
     string comillas (1, '"');
-    for (unsigned int x = 0; x < linea.size(); x++){
+    for (unsigned int x = 0; x <= linea.size(); x++){
         if (hasString(signos, linea.front())){
             linea.erase(0,1);
             return word;
@@ -82,6 +82,7 @@ string firstWord(string linea){
             linea.erase(0,1);
             return word;
         }
+        linea[0] = tolower(linea[0]);
         word.append(linea, 0, 1);
         linea.erase(0,1);
     }
@@ -168,13 +169,19 @@ void searchBySize(Trie * arbol, unsigned int tamano){
     List<string> * palabras = diccionario->getKeys();
     List<int> * veces = diccionario->getValues();
     cout << "Palabras encontradas!" << endl;
-    veces->goToStart();
-    for (palabras->goToStart(); !palabras->atEnd(); palabras->next()){
+    veces->goToEnd();
+    veces->previous();
+    palabras->goToEnd();
+    for (palabras->previous(); !palabras->atStart(); palabras->previous()){
         cout << "La Palabra (" + palabras->getElement() + ") \t aparece ";
         cout << veces->getElement();
         cout << " veces en el texto" << endl;
-        veces->next();
+        veces->previous();
     }
+    cout << "La Palabra (" + palabras->getElement() + ") \t aparece ";
+    cout << veces->getElement();
+    cout << " veces en el texto" << endl;
+    veces->previous();
     delete diccionario;
     delete palabras;
     delete veces;
@@ -193,17 +200,42 @@ void showTop(Trie * arbol, int n, bool top){
     List<string> * palabras = diccionario->getValues();
     List<int> * veces = diccionario->getKeys();
     cout << "Palabras obtenidas!" << endl;
-    veces->goToStart();
     int x = 1;
-    for (palabras->goToStart(); !palabras->atEnd(); palabras->next()){
+    if (top){
+        veces->goToEnd();
+        veces->previous();
+        palabras->goToEnd();
+        for (palabras->previous(); !palabras->atStart(); palabras->previous()){
+            cout << "Palabra N° ";
+            cout << x;
+            cout << ": (" << palabras->getElement() << ")." << endl;
+            cout << "Aparece ";
+            cout << veces->getElement();
+            cout << " veces en el texto." << endl;
+            veces->previous();
+            x++;
+        }
         cout << "Palabra N° ";
         cout << x;
         cout << ": (" << palabras->getElement() << ")." << endl;
         cout << "Aparece ";
         cout << veces->getElement();
         cout << " veces en el texto." << endl;
-        veces->next();
+        veces->previous();
         x++;
+    }
+    else{
+        veces->goToStart();
+        for (palabras->goToStart(); !palabras->atEnd(); palabras->next()){
+            cout << "Palabra N° ";
+            cout << x;
+            cout << ": (" << palabras->getElement() << ")." << endl;
+            cout << "Aparece ";
+            cout << veces->getElement();
+            cout << " veces en el texto." << endl;
+            veces->next();
+            x++;
+        }
     }
     delete diccionario;
     delete palabras;
@@ -359,12 +391,7 @@ int main() {
     while (texto->good()){
         texto->getline(linea, 10000, '\n');
         lineCounter++;
-        for (int x = 0; x < 10000; x++){
-            if (linea[x] == *"\0")
-                break;
-            else
-                lineText+= linea[x];
-        }
+        lineText = linea;
         lineas->append(lineText);
         while (lineText.size() > 0){
             string palabra = firstWord(lineText);

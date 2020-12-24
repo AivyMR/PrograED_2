@@ -123,7 +123,7 @@
 1607551754 c:\users\26399\github\prograed_2\pruebas proyecto 2\include\sortedarraylist.h
 	"arraylist.h"
 
-1608670367 source:d:\users\xdavi\github\prograed_2\pruebas proyecto 2\main.cpp
+1608770416 source:d:\users\xdavi\github\prograed_2\pruebas proyecto 2\main.cpp
 	<dirent.h>
 	<fstream>
 	<limits>
@@ -139,7 +139,7 @@
 	"include/Trie.h"
 	"sortedarraylist.h"
 
-1608668849 d:\users\xdavi\github\prograed_2\pruebas proyecto 2\include\trie.h
+1608769379 d:\users\xdavi\github\prograed_2\pruebas proyecto 2\include\trie.h
 	"TrieNode.h"
 	"arraylist.h"
 	"SortedArrayDictionary.h"
@@ -147,44 +147,44 @@
 	<stdexcept>
 	<iostream>
 
-1607305994 d:\users\xdavi\github\prograed_2\pruebas proyecto 2\include\trienode.h
+1608671203 d:\users\xdavi\github\prograed_2\pruebas proyecto 2\include\trienode.h
 	"AVLTreeDictionary.h"
 
-1607306058 d:\users\xdavi\github\prograed_2\pruebas proyecto 2\include\avltreedictionary.h
+1608672363 d:\users\xdavi\github\prograed_2\pruebas proyecto 2\include\avltreedictionary.h
 	<iostream>
 	"AVLTree.h"
 	"Dictionary.h"
 	"KVPair.h"
 
-1606945977 d:\users\xdavi\github\prograed_2\pruebas proyecto 2\include\avltree.h
+1608672418 d:\users\xdavi\github\prograed_2\pruebas proyecto 2\include\avltree.h
 	"BSTNode.h"
 	"DLinkedList.h"
 	<stdexcept>
 
-1605907698 d:\users\xdavi\github\prograed_2\pruebas proyecto 2\include\bstnode.h
+1608672301 d:\users\xdavi\github\prograed_2\pruebas proyecto 2\include\bstnode.h
 
-1602107096 d:\users\xdavi\github\prograed_2\pruebas proyecto 2\include\dlinkedlist.h
+1608672219 d:\users\xdavi\github\prograed_2\pruebas proyecto 2\include\dlinkedlist.h
 	"list.h"
 	"DNode.h"
 	<stdexcept>
 
-1602109142 d:\users\xdavi\github\prograed_2\pruebas proyecto 2\include\list.h
+1608671951 d:\users\xdavi\github\prograed_2\pruebas proyecto 2\include\list.h
 
-1606348459 d:\users\xdavi\github\prograed_2\pruebas proyecto 2\include\dnode.h
+1608672163 d:\users\xdavi\github\prograed_2\pruebas proyecto 2\include\dnode.h
 
-1603315812 d:\users\xdavi\github\prograed_2\pruebas proyecto 2\include\dictionary.h
+1608672241 d:\users\xdavi\github\prograed_2\pruebas proyecto 2\include\dictionary.h
 	"List.h"
 
-1603319021 d:\users\xdavi\github\prograed_2\pruebas proyecto 2\include\kvpair.h
+1608672115 d:\users\xdavi\github\prograed_2\pruebas proyecto 2\include\kvpair.h
 
-1601952210 d:\users\xdavi\github\prograed_2\pruebas proyecto 2\include\arraylist.h
+1608672459 d:\users\xdavi\github\prograed_2\pruebas proyecto 2\include\arraylist.h
 	"list.h"
 	<stdexcept>
 
-1601070260 d:\users\xdavi\github\prograed_2\pruebas proyecto 2\include\sortedarraylist.h
+1608671664 d:\users\xdavi\github\prograed_2\pruebas proyecto 2\include\sortedarraylist.h
 	"arraylist.h"
 
-1608501391 d:\users\xdavi\github\prograed_2\pruebas proyecto 2\include\sortedarraydictionary.h
+1608671860 d:\users\xdavi\github\prograed_2\pruebas proyecto 2\include\sortedarraydictionary.h
 	<iostream>
 	"sortedarraylist.h"
 	"Dictionary.h"

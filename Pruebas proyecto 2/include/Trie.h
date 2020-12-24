@@ -77,6 +77,16 @@ private:
     }
 
     SortedArrayDictionary<int, string> * getOcurrences(){
+        ifstream * ignorar = new ifstream();
+        ArrayList<string> * noUsar = new ArrayList<string>();
+        ignorar->open("ignorar.txt", ifstream::in);
+        char caracter[10];
+        string palabra;
+        while (ignorar->good()){
+            ignorar->getline(caracter, 10, '\n');
+            palabra = caracter;
+            noUsar->append(palabra);
+        }
         SortedArrayDictionary<int, string> * veces = new SortedArrayDictionary<int, string>();
         palabras->goToStart();
         for (lineas->goToStart(); !lineas->atEnd(); lineas->next()){
@@ -196,7 +206,7 @@ public:
     SortedArrayDictionary<int, string> * mostUsed(int n){
         SortedArrayDictionary<int, string> * veces = getOcurrences();
         SortedArrayDictionary<int, string> * top = new SortedArrayDictionary<int, string>();
-        for (int x = 0; x < n; x++){
+        for (int x = veces->getSize()-2; x >= veces->getSize()-n-1; x--){
             KVPair<int, string> par = veces->getPair(x);
             top->insert(par.getKey(), par.getValue());
         }
