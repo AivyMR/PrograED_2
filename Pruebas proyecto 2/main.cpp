@@ -71,7 +71,7 @@ bool hasString(string signos, char caracter){
 //Se encarga de extraer la primera palabra de un string.
 string firstWord(string linea){
     string word;
-    string signos (".,: '()?!;0123456789-*¿¡«»");
+    string signos (".,: '()?!;0123456789-*¿¡«»[]°#$%&/\+-{}^");
     string comillas (1, '"');
     for (unsigned int x = 0; x <= linea.size(); x++){
         if (hasString(signos, linea.front())){
@@ -352,9 +352,7 @@ int menu(int choiceM, Trie * arbol, ArrayList<string> * lineas){
 //Función creada por David, Aivy y Samuel
 //Se encarga de abrir el archivo solicitado y extraer sus palabras para guardarlas en un Trie.
 int main() {
-    setlocale(LC_ALL, "spanish");
-    SetConsoleCP(1252);
-    SetConsoleOutputCP(1252);
+    setlocale(LC_ALL, "ES");
     //char raiz[80];
     char file[50];
     cout << "Bienvenido al programa que procesa textos :)" << endl;
