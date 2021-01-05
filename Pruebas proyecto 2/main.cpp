@@ -56,7 +56,7 @@ int main2(){
  *-------------------------------------------------------------------------------------------------------------------------------
  *-------------------------------------------------------------------------------------------------------------------------------
  */
-
+/*
 //Función creada por David Pastor
 //Se encarga de verificar si un string contiene cierto caractér.
 bool hasString(string signos, char caracter){
@@ -66,19 +66,20 @@ bool hasString(string signos, char caracter){
     }
     return false;
 }
+*/
 
 //Función creada por David Pastor
 //Se encarga de extraer la primera palabra de un string.
 string firstWord(string linea){
     string word;
-    string signos (".,: '()?!;0123456789-*¿¡«»[]°#$%&/\+-{}^");
+    string signos (" .,:'()?!;0123456789-*¿¡«»[]°#$%&/+-{}^");
     string comillas (1, '"');
     for (unsigned int x = 0; x <= linea.size(); x++){
-        if (hasString(signos, linea.front())){
+        if (signos.find(linea.front())!=string::npos){
             linea.erase(0,1);
             return word;
         }
-        else if (hasString(comillas, linea.front())){
+        else if (comillas.find(linea.front())!=string::npos){
             linea.erase(0,1);
             return word;
         }
@@ -337,7 +338,7 @@ int menu(int choiceM, Trie * arbol, ArrayList<string> * lineas){
             cout<<"-----------MENÚ-----------\t"<<endl<<endl;
             cout<< "\tPresione 1 para hacer una consulta por prefijo."<< endl;
             cout<< "\tPresione 2 para hacer busqueda de palabra."<< endl;
-            cout<< "\tPresione 3 para hacer por cantidad de letras."<< endl;
+            cout<< "\tPresione 3 para realizar un búsqueda por cantidad de letras."<< endl;
             cout<< "\tPresione 4 para ver las palabras mas utilizadas."<< endl;
             cout<< "\tPresione 5 para terminar el programa."<< endl;
         }while (true);
@@ -412,7 +413,7 @@ int main() {
     cout<< "Archivo procesado!!!"<< endl;
     cout<< "\tPresione 1 para hacer una consulta por prefijo."<< endl;
     cout<< "\tPresione 2 para hacer busqueda de palabra."<< endl;
-    cout<< "\tPresione 3 para hacer por cantidad de letras."<< endl;
+    cout<< "\tPresione 3 para realizar un búsqueda por cantidad de letras."<< endl;
     cout<< "\tPresione 4 para ver las palabras mas utilizadas."<< endl;
     cout<< "\tPresione 5 para terminar el programa."<< endl;
     menu(choiceM, arbol, lineas);
