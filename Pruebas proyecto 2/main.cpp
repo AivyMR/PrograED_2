@@ -72,21 +72,19 @@ bool hasString(string signos, char caracter){
 //Se encarga de extraer la primera palabra de un string.
 string firstWord(string linea){
     string word;
-    string signos (" .,:'()?!;0123456789-*¿¡«»[]°#$%&/+-{}^");
-    string comillas (1, '"');
+    string abecedario ("abcdefghijklmnñopqrstuvwxyzáéíóú");
     for (unsigned int x = 0; x <= linea.size(); x++){
-        if (signos.find(linea.front())!=string::npos){
-            linea.erase(0,1);
-            return word;
-        }
-        else if (comillas.find(linea.front())!=string::npos){
-            linea.erase(0,1);
-            return word;
-        }
         linea[0] = tolower(linea[0]);
-        word.append(linea, 0, 1);
-        linea.erase(0,1);
+        if (abecedario.find(linea.front())!=string::npos){
+            word.append(linea, 0, 1);
+            linea.erase(linea.begin());
+        }
+        else{
+            linea.erase(linea.begin());
+            return word;
+        }
     }
+    //cout << word << endl;
     return word;
 }
 
